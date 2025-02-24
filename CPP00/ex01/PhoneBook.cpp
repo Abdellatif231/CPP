@@ -28,6 +28,8 @@ void PhoneBook::searchContact() const {
     std::cout << "Enter the index of the contact to display: ";
     int index;
     std::cin >> index;
+	if (std::cin.eof())
+		std::exit(0);;
 
     if (std::cin.fail() || index < 1 || index > contactCount) {
         std::cin.clear();

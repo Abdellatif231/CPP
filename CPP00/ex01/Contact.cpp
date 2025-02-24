@@ -1,21 +1,68 @@
 #include "Contact.hpp"
 
+std::string trim(std::string str) {
+    while (!str.empty() && (str[0] == ' ' || str[0] == '\t' || str[0] == '\n'))
+        str.erase(0, 1);
+
+    while (!str.empty() && (str[str.length() - 1] == ' ' || str[str.length() - 1] == '\t' || str[str.length() - 1] == '\n'))
+        str.erase(str.length() - 1, 1);
+
+	if (str.empty())
+		return "";
+    return str;
+}
+
 void Contact::setContact() {
+
+	std::string input;
+
 	std::cin.ignore();
-    std::cout << "First name: ";
-    std::getline(std::cin, firstName);
 
-    std::cout << "Last name: ";
-    std::getline(std::cin, lastName);
+	do {
+    	std::cout << "First name: ";
+    	std::getline(std::cin, input);
+		if (std::cin.eof())
+			std::exit(0);
+		input = trim(input);
+	} while (input.empty());
+	firstName = input;
 
-    std::cout << "Nickname: ";
-    std::getline(std::cin, nickName);
+	do {
+    	std::cout << "Last name: ";
+    	std::getline(std::cin, input);
+		if (std::cin.eof())
+        	std::exit(0);
+		input = trim(input);
+	} while (input.empty());
+	lastName = input;
 
-    std::cout << "Phone number: ";
-    std::getline(std::cin, phoneNumber);
+	do {
+    	std::cout << "Nickname: ";
+    	std::getline(std::cin, input);
+		if (std::cin.eof())
+        	std::exit(0);
+		input = trim(input);
+	} while (input.empty());
+	nickName = input;
 
-    std::cout << "Darkest secret: ";
-    std::getline(std::cin, darkestSecret);
+	do {
+    	std::cout << "Phone number: ";
+    	std::getline(std::cin, input);
+		if (std::cin.eof())
+        	std::exit(0);
+		input = trim(input);
+	} while (input.empty() || input.find_first_not_of("+0123456789") != std::string::npos);
+	phoneNumber = input;
+
+	do {
+    	std::cout << "Darkest secret: ";
+    	std::getline(std::cin, input);
+		if (std::cin.eof())
+        	std::exit(0);
+		input = trim(input);
+	} while (input.empty());
+	darkestSecret = input;
+
 }
 
 void Contact::displaySummary(int index) const {
