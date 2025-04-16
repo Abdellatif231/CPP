@@ -5,7 +5,7 @@
 #include "WrongCat.hpp"
 
 int main() {
-    std::cout << "--- Correct Polymorphism ---\n" << std::endl;
+    std::cout << "\n--- Correct Polymorphism ---\n" << std::endl;
     const Animal* meta = new Animal();
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
