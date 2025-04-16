@@ -1,15 +1,15 @@
 XX = c++
-CPPFLAGS = -Wall -Wextra -Werror
-CPPFILES = main.cpp ClapTrap.cpp 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFILES = main.cpp ClapTrap.cpp FragTrap.cpp 
 OFILES = $(CPPFILES:.cpp=.o)
-NAME = clap
+NAME = frag
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	$(XX) $(CPPFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp ClapTrap.hpp
+%.o: %.cpp ClapTrap.hpp FragTrap.hpp
 	$(XX) $(CPPFLAGS) -c $< -o $@
 
 clean:

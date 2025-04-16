@@ -1,16 +1,16 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
-CFILES = main.cpp ClapTrap.cpp 
-OFILES = $(CFILES:.cpp=.o)
-NAME = clap
+XX = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFILES = main.cpp ClapTrap.cpp ScavTrap.cpp 
+OFILES = $(CPPFILES:.cpp=.o)
+NAME = scav
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
+	$(XX) $(CPPFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp ClapTrap.hpp
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp ClapTrap.hpp SacvTrap.hpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OFILES)

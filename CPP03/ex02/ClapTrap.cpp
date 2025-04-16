@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : hitPoints(10), energyPoints(10), attackDamag(0) {
+ClapTrap::ClapTrap(void) : hitPoints(10), energyPoints(10), attackDamage(0) {
     std::cout << "Default constructor called" << std::endl;
     return ;
 }
@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) {
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->energyPoints = other.energyPoints;
-	this->attackDamag = other.attackDamag;
+	this->attackDamage = other.attackDamage;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
@@ -20,7 +20,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
     this->name = other.name;
     this->hitPoints = other.hitPoints;
     this->energyPoints = other.energyPoints;
-    this->attackDamag = other.attackDamag;
+    this->attackDamage = other.attackDamage;
 
     return (*this);
 }
@@ -30,7 +30,7 @@ ClapTrap::~ClapTrap(void) {
     return ;
 }
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamag(0) {
+ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
 	std::cout << "Constructor taking called" << std::endl;
 }
 
@@ -43,7 +43,7 @@ void ClapTrap::attack(const std::string& target) {
 	this->energyPoints--;
 	std::cout << "ClapTrap " << this->name 
 		<< " attacks " <<  target 
-		<< " causing " << this->attackDamag
+		<< " causing " << this->attackDamage
 		<< " points of damage!" << std::endl;
 }
 
