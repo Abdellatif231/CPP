@@ -16,13 +16,15 @@ int main() {
     }
 
 	std::cout << "\n--- Testing makeSound ---\n" << std::endl;
-    for (int i = 0; i < numAnimals; ++i)
+    for (int i = 0; i < numAnimals; ++i) {
         animals[i]->makeSound();
+    }
 
 	std::cout << "\n--- Deleting Animals ---\n" << std::endl;
-    for (int i = 0; i < numAnimals; ++i)
+    for (int i = 0; i < numAnimals; ++i) {
         delete animals[i];
-
+    }
+    
 	std::cout << "\n--- Deep Copy Test ---\n" << std::endl;
     Cat original;
     original.getBrain()->setIdea(0, "Luffy");
