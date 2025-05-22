@@ -29,6 +29,8 @@ class Bureaucrat
 		int getGrade() const;
 		void incGrade();
 		void decGrade();
+	//	void signForm(Form& form);   <<== Dobule include problem
+
 };
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& other);
