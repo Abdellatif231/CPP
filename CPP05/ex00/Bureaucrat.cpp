@@ -22,15 +22,13 @@ Bureaucrat::~Bureaucrat(void)
     std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Constructor taking called" << std::endl;
-	if (grade < 1)
+	if (this->grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	else if (grade > 150)
+	else if (this->grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	else
-		this->grade = grade;
 }
 
 const std::string& Bureaucrat::getName() const
