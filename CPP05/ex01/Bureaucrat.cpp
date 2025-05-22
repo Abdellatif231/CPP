@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void)
 {
@@ -70,29 +71,13 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& other)
 	stream << other.getName() <<  ", bureaucrat grade " << other.getGrade();
 	return stream;
 }
-/*
- * fix the dobule include
- * how can u pass an obj of a class inside the class itself
- 
 
 void Bureaucrat::signForm(Form& form)
 {
 	try {
-		from.beSigned
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	} catch (std::exception& e) {
+		std::cout << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}

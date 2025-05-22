@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(void) : sing(1), execute(150), _signed(false)
 {
@@ -84,37 +85,3 @@ std::ostream& operator<<(std::ostream& stream, const Form& other)
 		stream << "False";
 	return stream;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

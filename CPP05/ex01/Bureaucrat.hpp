@@ -2,6 +2,8 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -29,7 +31,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incGrade();
 		void decGrade();
-	//	void signForm(Form& form);   <<== Dobule include problem
+		void signForm(Form& form);
 
 };
 
