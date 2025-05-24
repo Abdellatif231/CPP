@@ -23,6 +23,11 @@ class AForm
 				const char* what() const throw();
 		};
 
+		class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
         AForm(void);
         AForm(const AForm& other);
         AForm &operator=(const AForm &other);
@@ -30,9 +35,10 @@ class AForm
 		AForm(const std::string name, const int sing, const int execute);
 		const std::string& getName() const;
 		int getSing() const;
-		virtual int getExe() const = 0;
+		int getExe() const;
 		bool isSinged() const;
 		void beSigned(Bureaucrat& bure);
+		virtual void _execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& stream, const AForm& other);

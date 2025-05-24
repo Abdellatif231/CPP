@@ -1,32 +1,43 @@
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
-// Default constructor
 PresidentialPardonForm::PresidentialPardonForm(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "PPF Default constructor called" << std::endl;
     return ;
 }
 
-// Copy constructor
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    (void) other;
-    return ;
+    std::cout << "PPF Copy constructor called" << std::endl;
 }
 
-// Assignment operator overload
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
-    std::cout << "Assignment operator called" << std::endl;
-    (void) other;
+    std::cout << "PPF Assignment operator called" << std::endl;
+	AForm::operator=(other);
     return (*this);
 }
 
-// Destructor
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "PPF Destructor called" << std::endl;
     return ;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 145, 137)
+{
+	std::cout << "PPF Taking constructor called" << std::endl;
+}
+
+// Maybe check the form in the base class
+void PresidentialPardonForm::_execute(Bureaucrat const & executor) const
+{
+	if (!this->isSinged())
+		throw PresidentialPardonForm::FormNotSignedException();
+	else if (executor.getGrade() > this->getExe())
+		throw PresidentialPardonForm::GradeTooLowException();
+	else
+		std::cout << this->getName() << " executed." << std::endl;
+	// add a func to do the action in the derived class
+}
