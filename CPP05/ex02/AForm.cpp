@@ -4,11 +4,6 @@
 AForm::AForm(void) : sing(1), execute(150), _signed(false)
 {
     std::cout << "Default constructor called" << std::endl;
-    if (this->sing < 1 || this->execute < 1)
-        throw AForm::GradeTooHighException();
-    else if (this->sing > 150 || this->execute > 150)
-        throw AForm::GradeTooLowException();
-
 }
 
 AForm::AForm(const AForm &other) : name(other.name), sing(other.sing), execute(other.execute), _signed(other._signed)
@@ -89,4 +84,14 @@ std::ostream& operator<<(std::ostream& stream, const AForm& other)
 	else
 		stream << "False";
 	return stream;
+}
+
+void AForm::_execute(Bureaucrat const & executor) const
+{
+	if (!this->isSinged())
+        throw AForm::FormNotSignedException();
+    else if (executor.getGrade() > this->getExe())
+        throw AForm::GradeTooLowException();
+	else
+		this->action();
 }

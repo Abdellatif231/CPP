@@ -25,19 +25,12 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 145, 137)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 25, 5)
 {
 	std::cout << "PPF Taking constructor called" << std::endl;
 }
 
-// Maybe check the form in the base class
-void PresidentialPardonForm::_execute(Bureaucrat const & executor) const
+void PresidentialPardonForm::action() const
 {
-	if (!this->isSinged())
-		throw PresidentialPardonForm::FormNotSignedException();
-	else if (executor.getGrade() > this->getExe())
-		throw PresidentialPardonForm::GradeTooLowException();
-	else
-		std::cout << this->getName() << " executed." << std::endl;
-	// add a func to do the action in the derived class
+	std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

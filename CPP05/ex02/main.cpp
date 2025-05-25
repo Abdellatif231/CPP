@@ -1,15 +1,23 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
-
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
+	Bureaucrat luffy("Luffy", 2);
+	ShrubberyCreationForm shrubbery("home");
+    RobotomyRequestForm robotomy("office");
+    PresidentialPardonForm pardon("Kaizoku");
+
+	luffy.signForm(shrubbery);
+	luffy.signForm(robotomy);
+	luffy.signForm(pardon);
+
 	try {
-		Bureaucrat b("Luffy", 10);
-		AForm *f = new PresidentialPardonForm("home");
-		b.signForm(*f);
-		f->_execute(b);
-		delete f;
+		luffy.executeForm(shrubbery);
+        luffy.executeForm(robotomy);
+        luffy.executeForm(pardon);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}

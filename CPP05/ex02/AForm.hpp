@@ -38,7 +38,8 @@ class AForm
 		int getExe() const;
 		bool isSinged() const;
 		void beSigned(Bureaucrat& bure);
-		virtual void _execute(Bureaucrat const & executor) const = 0;
+		virtual void action() const = 0;
+		void _execute(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream& stream, const AForm& other);
