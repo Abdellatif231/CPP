@@ -7,7 +7,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), target(other.target)
 {
     std::cout << "SSF Copy constructor called" << std::endl;
 }
@@ -16,6 +16,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
     std::cout << "SSF Assignment operator called" << std::endl;
 	AForm::operator=(other);
+	this->target = other.target;
     return (*this);
 }
 
@@ -25,14 +26,19 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Form", 145, 137), target(target)
 {
 	std::cout << "SSF Taking constructor called" << std::endl;
 }
 
+std::string ShrubberyCreationForm::getTarget() const
+{
+	return this->target;
+}
+
 void ShrubberyCreationForm::action() const
 {
-	std::ofstream file(this->getName() + "_shrubbery");
+	std::ofstream file(this->getTarget() + "_shrubbery");
 	if (!file) {
 		std::cerr << "Error opening the file" << std::endl;
 		return;

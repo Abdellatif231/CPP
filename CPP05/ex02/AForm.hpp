@@ -38,6 +38,7 @@ class AForm
 		int getExe() const;
 		bool isSinged() const;
 		void beSigned(Bureaucrat& bure);
+		std::string getTarget() const;
 		virtual void action() const = 0;
 		void _execute(Bureaucrat const & executor) const;
 };
