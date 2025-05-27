@@ -26,7 +26,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Form", 25, 5), target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential Pardon", 25, 5), target(target)
 {
 	std::cout << "PPF Taking constructor called" << std::endl;
 }

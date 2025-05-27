@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Form", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation", 145, 137), target(target)
 {
 	std::cout << "SSF Taking constructor called" << std::endl;
 }

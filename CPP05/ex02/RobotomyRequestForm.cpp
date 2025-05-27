@@ -26,7 +26,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Form", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy Request", 72, 45), target(target)
 {
 	std::cout << "RRF Taking constructor called" << std::endl;
 }
