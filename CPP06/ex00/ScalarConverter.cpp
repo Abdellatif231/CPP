@@ -55,25 +55,26 @@ static bool isValid(std::string &str)
     bool has_dot = false;
     bool has_f = false;
 
-    // Optional sign
     if (str[i] == '+' || str[i] == '-')
         i++;
 
-    for (; i < str.length(); ++i) {
-        char c = str[i];
-        if (std::isdigit(c)) {
+    for (; i < str.length(); ++i)
+    {
+        if (std::isdigit(str[i])) {
             has_digit = true;
-        } else if (c == '.') {
+        }
+        else if (str[i] == '.') {
             if (has_dot)
                 return false;
             has_dot = true;
-        } else if (c == 'f') {
+        }
+        else if (str[i] == 'f') {
             if (i != str.length() - 1 || has_f)
                 return false;
             has_f = true;
-        } else {
-            return false;
         }
+        else
+            return false;
     }
 
     return has_digit;  
