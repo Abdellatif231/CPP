@@ -1,5 +1,31 @@
 #include "ScalarConverter.hpp"
 
+ScalarConverter::ScalarConverter(void)
+{
+    std::cout << "Default constructor called" << std::endl;
+    return ;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &other)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    (void) other;
+    return ;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
+{
+    std::cout << "Assignment operator called" << std::endl;
+    (void) other;
+    return (*this);
+}
+
+ScalarConverter::~ScalarConverter(void)
+{
+    std::cout << "Destructor called" << std::endl;
+    return ;
+}
+
 static bool isCharLiteral(const std::string &str) {
     return str.length() == 3 && str[0] == '\'' && str[2] == '\'';
 }
