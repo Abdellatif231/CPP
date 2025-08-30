@@ -9,11 +9,13 @@ int main()
     vec.push_back(2);
     vec.push_back(3);
 
-    std::vector<int>::iterator it = easyfind(vec, 9);
-    if (it != vec.end())
+    std::vector<int>::iterator it = easyfind(vec, 2);
+    if (it != vec.end()) {
         std::cout << "Found: " << *it << std::endl;
-    else
+    }
+    else {
         std::cout << "Not found!" << std::endl;
+    }
 
 	std::list<int> lst;
 	lst.push_back(21);
